@@ -27,12 +27,18 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('docker') {
           steps {
             sh 'docker ps'
           }
         }
 
+      }
+    }
+
+    stage('azure ') {
+      steps {
+        echo 'hello  azure'
       }
     }
 
