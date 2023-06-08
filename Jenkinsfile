@@ -8,19 +8,8 @@ pipeline {
     }
 
     stage('test') {
-      parallel {
-        stage('test') {
-          steps {
-            echo 'docker --version'
-          }
-        }
-
-        stage('docker') {
-          steps {
-            sh 'docker ps'
-          }
-        }
-
+      steps {
+        echo 'docker --version'
       }
     }
 
