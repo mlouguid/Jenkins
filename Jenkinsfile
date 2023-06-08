@@ -6,6 +6,7 @@ pipeline {
         stage('message') {
           steps {
             echo 'hello all'
+            echo 'Bonjour tout le monde'
           }
         }
 
@@ -19,8 +20,19 @@ pipeline {
     }
 
     stage('test') {
-      steps {
-        echo 'docker '
+      parallel {
+        stage('test') {
+          steps {
+            echo 'docker --version'
+          }
+        }
+
+        stage('') {
+          steps {
+            sh 'docker ps'
+          }
+        }
+
       }
     }
 
