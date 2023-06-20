@@ -2,8 +2,19 @@ pipeline {
   agent none
   stages {
     stage('message') {
-      steps {
-        echo 'hello all'
+      parallel {
+        stage('message') {
+          steps {
+            echo 'hello all'
+          }
+        }
+
+        stage('script') {
+          steps {
+            sh 'dotnet build eSopOnWeb.sln'
+          }
+        }
+
       }
     }
 
